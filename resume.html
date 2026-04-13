@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume — PK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:       #f6f7f9;
+      --bg-card:  #ffffff;
+      --text:     #111318;
+      --text-dim: #5c6170;
+      --accent:   #059669;
+      --accent-dim: rgba(5,150,105,0.08);
+      --border:   rgba(0,0,0,0.08);
+      --head:     'Outfit', sans-serif;
+      --mono:     'JetBrains Mono', monospace;
+    }
+    [data-theme="dark"] {
+      --bg:       #07080a;
+      --bg-card:  #10131a;
+      --text:     #e8eaed;
+      --text-dim: #7a818e;
+      --accent:   #34d399;
+      --accent-dim: rgba(52,211,153,0.1);
+      --border:   rgba(255,255,255,0.08);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      font-family: var(--head);
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .back-link:hover { background: var(--accent-dim); }
+    .topbar-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .topbar-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--head);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .topbar-btn:hover { transform: translateY(-1px); }
+    .btn-dl {
+      background: var(--accent);
+      color: #000;
+      box-shadow: 0 2px 12px rgba(52,211,153,0.2);
+    }
+    .btn-dl:hover { box-shadow: 0 4px 20px rgba(52,211,153,0.3); }
+    .btn-theme {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      padding: 8px;
+    }
+    .btn-theme:hover { color: var(--accent); border-color: var(--accent); }
+    [data-theme="dark"] .btn-theme .icon-sun { display: block; }
+    [data-theme="dark"] .btn-theme .icon-moon { display: none; }
+    [data-theme="light"] .btn-theme .icon-sun { display: none; }
+    [data-theme="light"] .btn-theme .icon-moon { display: block; }
+
+    .pdf-container {
+      flex: 1;
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+    }
+    .pdf-container iframe {
+      width: 100%;
+      max-width: 960px;
+      height: 100%;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--bg-card);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-left">
+      <a href="./index.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back
+      </a>
+      <span class="topbar-title">PK_Resume.pdf</span>
+    </div>
+    <div class="topbar-right">
+      <button class="topbar-btn btn-theme" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="./PK_Resume.pdf" download class="topbar-btn btn-dl">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download
+      </a>
+    </div>
+  </div>
+
+  <div class="pdf-container">
+    <iframe src="./PK_Resume.pdf" title="Resume"></iframe>
+  </div>
+
+  <script>
+    const root = document.documentElement;
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+    });
+  </script>
+
+</body>
+</html>
